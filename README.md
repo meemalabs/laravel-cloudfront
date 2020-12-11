@@ -32,6 +32,8 @@ $message = CloudFront::getInvalidation(string $invalidationId, string $distribut
 $messages = CloudFront::listInvalidations(string $distributionId = null)
 ```
 
+Please note, object invalidations typically take from 60 to 300 seconds to complete. You can check the status of an invalidation by viewing your distribution from the [CloudFront console](https://console.aws.amazon.com/cloudfront/).
+
 ## Installation
 
 You can install the package via composer:

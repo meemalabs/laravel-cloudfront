@@ -52,7 +52,8 @@ class CloudFront implements CloudFrontInterface
     public function invalidate($items, string $distributionId = null)
     {
         if (is_string($items)) {
-            $items[] = $items;
+            $arr[] = $items;
+            $items = $arr;
         }
 
         return $this->client->createInvalidation([
