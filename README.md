@@ -98,7 +98,7 @@ If you discover any security related issues, please email chris@cion.agency inst
 ## Credits
 
 - [Chris Breuer](https://github.com/Chris1904)
-- [Folks at Meema](https://github.com/meemaio)
+- [Folks at Meema](https://github.com/meemalabs)
 - [All Contributors](../../contributors)
 
 ## License
