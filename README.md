@@ -21,7 +21,13 @@ use Meema\CloudFront\Facades\CloudFront;
 
 // run any of the following CloudFront methods:
 $client = CloudFront::getClient(); // exposes the AWS CloudFront client
-$result = CloudFront::invalidate(array $items, int $quantity = 1, string $distributionId = null);
+
+$items = ['/some-path.jpg', '/another/path.png'];
+$result = CloudFront::invalidate($items, string $distributionId = null);
+
+// invalidates everything, which is the equivalent to a item path of `/*`.
+$result = CloudFront::reset();
+
 $message = CloudFront::getInvalidation(string $invalidationId, string $distributionId = null);
 $messages = CloudFront::listInvalidations(string $distributionId = null)
 ```

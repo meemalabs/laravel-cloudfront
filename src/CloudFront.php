@@ -45,13 +45,16 @@ class CloudFront implements CloudFrontInterface
     /**
      * Bust an item/s in CloudFront's cache.
      *
-     * @param array $items
-     * @param int $quantity
+     * @param array|string $items
      * @param string|null $distributionId
      * @return \Aws\Result
      */
-    public function invalidate(array $items, int $quantity = 1, string $distributionId = null)
+    public function invalidate($items, string $distributionId = null)
     {
+        if (is_string($items)) {
+            $items[] = $items;
+        }
+
         return $this->client->createInvalidation([
             'DistributionId' => $distributionId ?? config('cloudfront.distribution_id'),
             'InvalidationBatch' => [
@@ -60,10 +63,21 @@ class CloudFront implements CloudFrontInterface
                 'CallerReference' => microtime(true),
                 'Paths' => [
                     'Items' => $items,
-                    'Quantity' => $quantity,
+                    'Quantity' => count($items),
                 ],
             ],
         ]);
+    }
+
+    /**
+     * Remove every item out of your CloudFront distribution.
+     *
+     * @param string|null $distributionId
+     * @return \Aws\Result
+     */
+    public function reset(string $distributionId = null)
+    {
+        return $this->invalidate('/*', $distributionId ?? config('cloudfront.distribution_id'));
     }
 
     /**
