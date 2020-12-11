@@ -4,6 +4,7 @@ namespace Meema\CloudFront;
 
 use Aws\Credentials\Credentials;
 use Aws\CloudFront\CloudFrontClient;
+use Aws\Exception\AwsException;
 use Meema\CloudFront\Contracts\CloudFront as CloudFrontInterface;
 
 class CloudFront implements CloudFrontInterface
@@ -24,7 +25,7 @@ class CloudFront implements CloudFrontInterface
     {
         $config = config('cloudfront');
 
-        $this->client = new CloudFrontClient([
+        $this->client = new $client([
             'version' => $config['version'],
             'region' => $config['region'],
             'credentials' => new Credentials($config['credentials']['key'], $config['credentials']['secret']),
@@ -42,15 +43,95 @@ class CloudFront implements CloudFrontInterface
     }
 
     /**
-     * Bust an item in CloudFront's cache.
+     * Bust an item/s in CloudFront's cache.
      *
-     * @param string $id
+     * @param array $items
+     * @param int $quantity
+     * @param string|null $distributionId
      * @return \Aws\Result
      */
-    public function invalidateCache(string $id)
+    public function invalidate(array $items, int $quantity = 1, string $distributionId = null)
     {
         return $this->client->createInvalidation([
-            'Id' => $id,
+            'DistributionId' => $distributionId ?? config('cloudfront.distribution_id'),
+            'InvalidationBatch' => [
+                // CallerReference is a unique value that you provide and that CloudFront uses to prevent replays of your request.
+                // You must provide a new caller reference value and other new information in the request for CloudFront to create a new invalidation request.
+                'CallerReference' => microtime(true),
+                'Paths' => [
+                    'Items' => $items,
+                    'Quantity' => $quantity,
+                ],
+            ],
         ]);
+    }
+
+    /**
+     * Get a cache "invalidation".
+     *
+     * @param string $invalidationId
+     * @param string|null $distributionId
+     * @return string
+     */
+    public function getInvalidation(string $invalidationId, string $distributionId = null)
+    {
+        try {
+            $result = $this->client->getInvalidation([
+                'DistributionId' => $distributionId ?? config('cloudfront.distribution_id'),
+                'Id' => $invalidationId,
+            ]);
+
+            $message = '';
+
+            if (isset($result['Invalidation']['Status'])) {
+                $message = 'The status for the invalidation with the ID of '.$result['Invalidation']['Id'].' is '.$result['Invalidation']['Status'];
+            }
+
+            if (isset($result['@metadata']['effectiveUri'])) {
+                $message .= ', and the effective URI is '.$result['@metadata']['effectiveUri'].'.';
+            } else {
+                $message = 'Error: Could not get information about '.'the invalidation. The invalidation\'s status '.'was not available.';
+            }
+
+            return $message;
+        } catch (AwsException $e) {
+            throw($e->getAwsErrorMessage());
+        }
+    }
+
+    /**
+     * List all of the cache invalidations.
+     *
+     * @param string|null $distributionId
+     * @return array
+     */
+    public function listInvalidations(string $distributionId = null)
+    {
+        try {
+            $invalidations = $this->client->listInvalidations([
+                'DistributionId' => $distributionId ?? config('cloudfront.distribution_id') ,
+            ]);
+
+            $messages = [];
+
+            if (isset($invalidations['InvalidationList'])) {
+                if ($invalidations['InvalidationList']['Quantity'] > 0) {
+                    foreach ($invalidations['InvalidationList']['Items'] as $invalidation) {
+                        $message = 'The invalidation with the ID of '.$invalidation['Id'].' has the status of '.$invalidation['Status'].'.';
+                        $messages[$invalidation['Id']] = $message;
+                    }
+                } else {
+                    $message = 'Could not find any invalidations for the specified distribution.';
+                    array_push($messages, $message);
+                }
+            } else {
+                $message = 'Error: Could not get invalidation information. Could not get information about the specified distribution.';
+                array_push($messages, $message);
+            }
+
+            return $messages;
+        } catch (AwsException $e) {
+            throw($e->getAwsErrorMessage());
+        }
     }
 }

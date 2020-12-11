@@ -6,7 +6,6 @@ use Aws\Credentials\Credentials;
 use Aws\CloudFront\CloudFrontClient;
 use Exception;
 use Illuminate\Support\Manager;
-use Meema\CloudFront\CloudFront;
 
 class CloudFrontManager extends Manager
 {

@@ -5,10 +5,29 @@ namespace Meema\CloudFront\Contracts;
 interface CloudFront
 {
     /**
-     * Cancels an active job.
+     * Delete items in your CloudFront cache .
      *
-     * @param string $id
+     * @param array $items
+     * @param int $quantity
+     * @param string|null $distributionId
      * @return \Aws\Result
      */
-    public function createInvalidation(string $id);
+    public function invalidate(array $items, int $quantity = 1, string $distributionId = null);
+
+    /**
+     * Delete items in your CloudFront cache .
+     *
+     * @param string $invalidationId
+     * @param string|null $distributionId
+     * @return \Aws\Result
+     */
+    public function getInvalidation(string $invalidationId, string $distributionId = null);
+
+    /**
+     * Delete items in your CloudFront cache .
+     *
+     * @param string|null $distributionId
+     * @return \Aws\Result
+     */
+    public function listInvalidations(string $distributionId = null);
 }

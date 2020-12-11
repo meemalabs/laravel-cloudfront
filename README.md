@@ -8,7 +8,7 @@
 <!-- [[![Test](https://github.com/meemaio/laravel-cloudfront/workflows/Test/badge.svg?branch=master)](https://github.com/meemaio/laravel-cloudfront/actions) -->
 <!-- [[![Build Status](wip)](ghactions) -->
 
-This is a wrapper package for AWS CloudFront.
+This is a wrapper package for AWS CloudFront. Please note that while this package is used in production environments and is completely functional, it is not feature-complete. PRs & ideas are more than welcome! 
 
 ![laravel-cloudfront package image](https://banners.beyondco.de/CloundFront.png?theme=light&packageManager=composer+require&packageName=meema%2Flaravel-cloudfront&pattern=endlessClouds&style=style_1&description=Easily+%26+quickly+integrate+your+application+with+AWS+CloudFront.&md=1&showWatermark=1&fontSize=150px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg)
 
@@ -18,7 +18,10 @@ This is a wrapper package for AWS CloudFront.
 use Meema\CloudFront\Facades\CloudFront;
 
 // run any of the following CloudFront methods:
-$result = CloudFront::invalidateCache(string $id);
+$client = CloudFront::getClient(); // exposes the AWS CloudFront client
+$result = CloudFront::invalidate(array $items, int $quantity = 1, string $distributionId = null);
+$message = CloudFront::getInvalidation(string $invalidationId, string $distributionId = null);
+$messages = CloudFront::listInvalidations(string $distributionId = null)
 ```
 
 ## Installation
@@ -56,7 +59,19 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
     ],
 
+    'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
+
+    /**
+     * Specify the version of the CloudFront API you would like to use.
+     * Please only adjust this value if you know what you are doing.
+     */
     'version' => 'latest',
+
+    /**
+     * Specify the CloudFront Distribution ID.
+     * Example format: EBCYQAQALNSKL
+     */
+    'distribution_id' => env('AWS_CLOUDFRONT_DISTRIBUTION_ID'),
 
 ];
 ```
