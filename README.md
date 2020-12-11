@@ -1,14 +1,14 @@
 # CloudFront Package for Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/meema/laravel-cloudfront.svg?style=flat-square)](https://packagist.org/packages/meema/laravel-cloudfront)
-[![StyleCI](https://github.styleci.io/repos/264578171/shield?branch=master)](https://github.styleci.io/repos/264578171)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/meemaio/laravel-cloudfront/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/meemaio/laravel-cloudfront/?branch=master)
+[![StyleCI](https://github.styleci.io/repos/320476033/shield?branch=master)](https://github.styleci.io/repos/320476033)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/meemalabs/laravel-cloudfront/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/meemalabs/laravel-cloudfront/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/meema/laravel-cloudfront.svg?style=flat-square)](https://packagist.org/packages/meema/laravel-cloudfront)
-[![License](https://img.shields.io/github/license/meemaio/laravel-cloudfront.svg?style=flat-square)](https://github.com/meemaio/laravel-cloudfront/blob/master/LICENSE.md)
-<!-- [[![Test](https://github.com/meemaio/laravel-cloudfront/workflows/Test/badge.svg?branch=master)](https://github.com/meemaio/laravel-cloudfront/actions) -->
+[![License](https://img.shields.io/github/license/meemalabs/laravel-cloudfront.svg?style=flat-square)](https://github.com/meemalabs/laravel-cloudfront/blob/master/LICENSE.md)
+<!-- [[![Test](https://github.com/meemalabs/laravel-cloudfront/workflows/Test/badge.svg?branch=master)](https://github.com/meemalabs/laravel-cloudfront/actions) -->
 <!-- [[![Build Status](wip)](ghactions) -->
 
-This is a wrapper package for AWS CloudFront. Please note that while this package is used in production environments and is completely functional, it is not feature-complete. PRs & ideas are more than welcome! 
+This is a wrapper package for AWS CloudFront. Please note that while this package is used in production environments and is completely functional, it is not feature-complete. PRs & ideas are more than welcome! 🙏🏼
 
 ![laravel-cloudfront package image](https://banners.beyondco.de/CloundFront.png?theme=light&packageManager=composer+require&packageName=meema%2Flaravel-cloudfront&pattern=endlessClouds&style=style_1&description=Easily+%26+quickly+integrate+your+application+with+AWS+CloudFront.&md=1&showWatermark=1&fontSize=150px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg)
 
@@ -45,6 +45,7 @@ Next, please add the following keys their values to your `.env` file.
 ```bash
 AWS_ACCESS_KEY_ID=xxxxxxx
 AWS_SECRET_ACCESS_KEY=xxxxxxx
+AWS_CLOUDFRONT_DISTRIBUTION_ID=xxxxxxx
 ```
 
 The following is the content of the published config file:
