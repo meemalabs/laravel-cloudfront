@@ -2,8 +2,8 @@
 
 namespace Meema\CloudFront;
 
-use Aws\Credentials\Credentials;
 use Aws\CloudFront\CloudFrontClient;
+use Aws\Credentials\Credentials;
 use Aws\Exception\AwsException;
 use Meema\CloudFront\Contracts\CloudFront as CloudFrontInterface;
 
@@ -109,7 +109,7 @@ class CloudFront implements CloudFrontInterface
     {
         try {
             $invalidations = $this->client->listInvalidations([
-                'DistributionId' => $distributionId ?? config('cloudfront.distribution_id') ,
+                'DistributionId' => $distributionId ?? config('cloudfront.distribution_id'),
             ]);
 
             $messages = [];
