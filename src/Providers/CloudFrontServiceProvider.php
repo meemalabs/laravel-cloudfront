@@ -2,11 +2,9 @@
 
 namespace Meema\CloudFront\Providers;
 
-use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
-use Meema\CloudFront\Facades\CloudFront;
-use Meema\CloudFront\Http\Middleware\VerifySignature;
 use Meema\CloudFront\CloudFrontManager;
+use Meema\CloudFront\Facades\CloudFront;
 
 class CloudFrontServiceProvider extends ServiceProvider
 {

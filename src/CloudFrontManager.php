@@ -2,8 +2,8 @@
 
 namespace Meema\CloudFront;
 
-use Aws\Credentials\Credentials;
 use Aws\CloudFront\CloudFrontClient;
+use Aws\Credentials\Credentials;
 use Exception;
 use Illuminate\Support\Manager;
 
