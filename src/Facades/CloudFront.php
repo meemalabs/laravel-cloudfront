@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static \Aws\CloudFront\CloudFrontClient getClient()
- * @method static \Aws\Result invalidate(array|string $items, string $distributionId = null)
+ * @method static \Aws\Result invalidate(array|string $paths, string $distributionId = null)
  * @method static \Aws\Result reset(string $distributionId = null)
  * @method static string getInvalidation(string $invalidationId, string $distributionId = null)
  * @method static array listInvalidations(string $distributionId = null)

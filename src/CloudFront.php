@@ -45,15 +45,15 @@ class CloudFront implements CloudFrontInterface
     /**
      * Bust an item/s in CloudFront's cache.
      *
-     * @param array|string $items
+     * @param array|string $paths
      * @param string|null $distributionId
      * @return \Aws\Result
      */
-    public function invalidate($items, string $distributionId = null)
+    public function invalidate($paths, string $distributionId = null)
     {
-        if (is_string($items)) {
-            $arr[] = $items;
-            $items = $arr;
+        if (is_string($paths)) {
+            $arr[] = $paths;
+            $paths = $arr;
         }
 
         return $this->client->createInvalidation([
@@ -63,8 +63,8 @@ class CloudFront implements CloudFrontInterface
                 // You must provide a new caller reference value and other new information in the request for CloudFront to create a new invalidation request.
                 'CallerReference' => microtime(true),
                 'Paths' => [
-                    'Items' => $items,
-                    'Quantity' => count($items),
+                    'Items' => $paths,
+                    'Quantity' => count($paths),
                 ],
             ],
         ]);

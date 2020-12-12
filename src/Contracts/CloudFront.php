@@ -7,11 +7,11 @@ interface CloudFront
     /**
      * Delete items in your CloudFront cache .
      *
-     * @param array|string $items
+     * @param array|string $paths
      * @param string|null $distributionId
      * @return \Aws\Result
      */
-    public function invalidate($items, string $distributionId = null);
+    public function invalidate($paths, string $distributionId = null);
 
     /**
      * Delete everything in your CloudFront cache .
