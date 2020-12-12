@@ -18,6 +18,7 @@ PRs & ideas are more than welcome! 🙏🏼
 
 ``` php
 use Meema\CloudFront\Facades\CloudFront;
+use Meema\CloudFront\Jobs\InvalidateCache;
 
 // run any of the following CloudFront methods:
 $client = CloudFront::getClient(); // exposes the AWS CloudFront client
@@ -29,7 +30,10 @@ $result = CloudFront::invalidate($paths, string $distributionId = null);
 $result = CloudFront::reset();
 
 $message = CloudFront::getInvalidation(string $invalidationId, string $distributionId = null);
-$messages = CloudFront::listInvalidations(string $distributionId = null)
+$messages = CloudFront::listInvalidations(string $distributionId = null);
+
+// it's recommended to invalidate your cache using a job
+dispatch(new InvalidateCache($path.'*')); // you may want to add a '*'-wildcard at the end of your path if you whitelisted any query parameters
 ```
 
 Please note, object invalidations typically take from 60 to 300 seconds to complete. You can check the status of an invalidation by viewing your distribution from the [CloudFront console](https://console.aws.amazon.com/cloudfront/).
