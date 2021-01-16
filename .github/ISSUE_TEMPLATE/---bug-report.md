@@ -11,8 +11,8 @@ PLEASE READ: FILLING IN THE TEMPLATE IS REQUIRED!
 Issues that do not include enough information might not be picked up.
 Issues that have not been filled in using the issue template will be _closed_.
 
-Have you read laravel-cloudfront's contributing guidelines (https://github.com/meemalabs/laravel-cloudfront/blob/master/CONTRIBUTING.md)
-and Code Of Conduct (https://github.com/meemalabs/laravel-cloudfront/master/CODE_OF_CONDUCT.md)?
+Have you read laravel-cloudfront's contributing guidelines (https://github.com/meemalabs/laravel-cloudfront/blob/main/CONTRIBUTING.md)
+and Code Of Conduct (https://github.com/meemalabs/laravel-cloudfront/main/CODE_OF_CONDUCT.md)?
 
 By filing an Issue, you are expected to comply with it, including treating everyone with respect.
 
@@ -50,7 +50,7 @@ Put an X between the brackets if you have done the following:
 
 <!-- What you expect to happen -->
 
-**Actual behavior:** 
+**Actual behavior:**
 
 <!-- What actually happens. Please include screenshots, stack traces and anything that can help us understand the issue. -->
 

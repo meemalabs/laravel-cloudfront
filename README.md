@@ -1,11 +1,11 @@
 # CloudFront Package for Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/meema/laravel-cloudfront.svg?style=flat-square)](https://packagist.org/packages/meema/laravel-cloudfront)
-[![StyleCI](https://github.styleci.io/repos/320476033/shield?branch=master)](https://github.styleci.io/repos/320476033)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/meemalabs/laravel-cloudfront/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/meemalabs/laravel-cloudfront/?branch=master)
+[![StyleCI](https://github.styleci.io/repos/320476033/shield?branch=main)](https://github.styleci.io/repos/320476033)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/meemalabs/laravel-cloudfront/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/meemalabs/laravel-cloudfront/?branch=main)
 [![Total Downloads](https://img.shields.io/packagist/dt/meema/laravel-cloudfront.svg?style=flat-square)](https://packagist.org/packages/meema/laravel-cloudfront)
-[![License](https://img.shields.io/github/license/meemalabs/laravel-cloudfront.svg?style=flat-square)](https://github.com/meemalabs/laravel-cloudfront/blob/master/LICENSE.md)
-<!-- [[![Test](https://github.com/meemalabs/laravel-cloudfront/workflows/Test/badge.svg?branch=master)](https://github.com/meemalabs/laravel-cloudfront/actions) -->
+[![License](https://img.shields.io/github/license/meemalabs/laravel-cloudfront.svg?style=flat-square)](https://github.com/meemalabs/laravel-cloudfront/blob/main/LICENSE.md)
+<!-- [[![Test](https://github.com/meemalabs/laravel-cloudfront/workflows/Test/badge.svg?branch=main)](https://github.com/meemalabs/laravel-cloudfront/actions) -->
 <!-- [[![Build Status](wip)](ghactions) -->
 
 This is a wrapper package for AWS CloudFront. Please note that while this package is used in production environments and is completely functional, it is not feature-complete & currently only focuses on cache invalidations.
