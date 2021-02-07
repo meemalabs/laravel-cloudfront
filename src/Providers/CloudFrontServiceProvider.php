@@ -27,7 +27,7 @@ class CloudFrontServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'media-convert');
+        $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'cloudfront');
 
         $this->registerCloudFrontManager();
 

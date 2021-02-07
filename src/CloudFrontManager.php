@@ -21,7 +21,7 @@ class CloudFrontManager extends Manager
     }
 
     /**
-     * Create an Amazon CloudFront Converter instance.
+     * Create an Amazon CloudFront instance.
      *
      * @return \Meema\CloudFront\CloudFront
      * @throws \Exception
@@ -30,7 +30,7 @@ class CloudFrontManager extends Manager
     {
         $this->ensureAwsSdkIsInstalled();
 
-        $config = $this->config['media-convert'];
+        $config = $this->config['cloudfront'];
 
         $credentials = $this->getCredentials($config['credentials']);
 
