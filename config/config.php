@@ -19,7 +19,7 @@ return [
 
     /**
      * Specify the CloudFront Distribution ID.
-     * Example format: EBCYQAQALNSKL.
+     * Example format: EBCYQAQALNSKL
      */
     'distribution_id' => env('AWS_CLOUDFRONT_DISTRIBUTION_ID'),
 

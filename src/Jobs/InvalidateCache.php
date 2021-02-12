@@ -15,14 +15,17 @@ class InvalidateCache implements ShouldQueue
 
     private $paths;
 
+    private $distributionId;
+
     /**
      * Create a new job instance.
      *
      * @param string|array $paths
      */
-    public function __construct($paths)
+    public function __construct($paths, $distributionId = null)
     {
         $this->paths = $paths;
+        $this->distributionId = $distributionId;
     }
 
     /**
@@ -32,6 +35,6 @@ class InvalidateCache implements ShouldQueue
      */
     public function handle()
     {
-        CloudFront::invalidate($this->paths);
+        CloudFront::invalidate($this->paths, $this->distributionId);
     }
 }
