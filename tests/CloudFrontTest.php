@@ -44,7 +44,7 @@ beforeEach(function () {
 it('can fetch cloudfront client', function () {
     $client = CloudFront::getClient();
 
-    $this->assertTrue(!is_null($client));
+    $this->assertTrue(! is_null($client));
 });
 
 it('can invalidate image', function () {
