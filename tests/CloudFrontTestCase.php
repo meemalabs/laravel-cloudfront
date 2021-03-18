@@ -13,6 +13,7 @@ class CloudFrontTestCase extends TestCase
     {
         return [CloudFrontServiceProvider::class];
     }
+
     public function initializeDotEnv()
     {
         if (! file_exists(__DIR__.'/../.env')) {
