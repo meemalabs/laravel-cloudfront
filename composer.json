@@ -23,7 +23,9 @@
     },
     "require-dev": {
         "orchestra/testbench": "^3.5.0|^3.6.0|^4.0|^5.0|^6.0",
-        "phpunit/phpunit": "^5.0|^6.0|^8.0|^9.3"
+        "pestphp/pest": "^1.0",
+        "phpunit/phpunit": "^5.0|^6.0|^8.0|^9.3",
+        "vlucas/phpdotenv": "^4.2|^5.3"
     },
     "autoload": {
         "psr-4": {
