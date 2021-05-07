@@ -8,7 +8,7 @@
 <!-- [[![Test](https://github.com/meemalabs/laravel-cloudfront/workflows/Test/badge.svg?branch=main)](https://github.com/meemalabs/laravel-cloudfront/actions) -->
 <!-- [[![Build Status](wip)](ghactions) -->
 
-This is a wrapper package for AWS CloudFront. Please note that while this package is used in production environments and is completely functional, it is not feature-complete & currently only focuses on cache invalidations.
+This is a wrapper package for AWS CloudFront. Please note that while this package is used in production environments and is completely functional, it currently only focuses on cache invalidations.
 
 PRs & ideas are more than welcome! 🙏🏼
 
