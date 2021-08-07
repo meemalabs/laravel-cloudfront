@@ -14,7 +14,7 @@ PRs & ideas are more than welcome! 🙏🏼
 
 ![laravel-cloudfront package image](https://banners.beyondco.de/CloudFront.png?theme=light&packageManager=composer+require&packageName=meema%2Flaravel-cloudfront&pattern=endlessClouds&style=style_1&description=Easily+%26+quickly+integrate+your+application+with+AWS+CloudFront.&md=1&showWatermark=1&fontSize=150px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg)
 
-## Usage
+## 💡 Usage
 
 ``` php
 use Meema\CloudFront\Facades\CloudFront;
@@ -38,7 +38,7 @@ dispatch(new InvalidateCache($path.'*')); // you may want to add a '*'-wildcard 
 
 Please note, object invalidations typically take from 60 to 300 seconds to complete. You can check the status of an invalidation by viewing your distribution from the [CloudFront console](https://console.aws.amazon.com/cloudfront/).
 
-## Installation
+## 🐙 Installation
 
 You can install the package via composer:
 
@@ -91,32 +91,42 @@ return [
 ];
 ```
 
-### Testing
+## 🧪 Testing
 
 ``` bash
 composer test
 ```
 
-### Changelog
+## 📈 Changelog
 
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+Please see our [releases](https://github.com/meemalabs/laravel-cloudfront/releases) page for more information on what has changed recently.
 
-## Contributing
+## 💪🏼 Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-### Security
+## 🏝 Community
 
-If you discover any security related issues, please email [security@meema.io](security@meema.io) instead of using the issue tracker.
+For help, discussion about best practices, or any other conversation that would benefit from being searchable:
 
-## Credits
+[Laravel CloudFront on GitHub](https://github.com/meemalabs/laravel-cloudfront/discussions)
+
+For casual chit-chat with others using this package:
+
+[Join the Meema Discord Server](https://discord.meema.io)
+
+## 🚨 Security
+
+Please review [our security policy](https://github.com/meemalabs/laravel-cloudfront/security/policy) on how to report security vulnerabilities.
+
+## 🙏🏼 Credits
 
 - [Chris Breuer](https://github.com/Chris1904)
 - [Folks at Meema](https://github.com/meemalabs)
 - [All Contributors](../../contributors)
 
-## License
+## 📄 License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [LICENSE](LICENSE.md) for more information.
 
 Made with ❤️ by Meema, Inc.
