@@ -7,8 +7,8 @@ interface CloudFront
     /**
      * Delete items in your CloudFront cache .
      *
-     * @param array|string $paths
-     * @param string|null $distributionId
+     * @param  array|string  $paths
+     * @param  string|null  $distributionId
      * @return \Aws\Result
      */
     public function invalidate($paths, string $distributionId = null);
@@ -16,7 +16,7 @@ interface CloudFront
     /**
      * Delete everything in your CloudFront cache .
      *
-     * @param string|null $distributionId
+     * @param  string|null  $distributionId
      * @return \Aws\Result
      */
     public function reset(string $distributionId = null);
@@ -24,8 +24,8 @@ interface CloudFront
     /**
      * Delete items in your CloudFront cache .
      *
-     * @param string $invalidationId
-     * @param string|null $distributionId
+     * @param  string  $invalidationId
+     * @param  string|null  $distributionId
      * @return \Aws\Result
      */
     public function getInvalidation(string $invalidationId, string $distributionId = null);
@@ -33,7 +33,7 @@ interface CloudFront
     /**
      * Delete items in your CloudFront cache .
      *
-     * @param string|null $distributionId
+     * @param  string|null  $distributionId
      * @return \Aws\Result
      */
     public function listInvalidations(string $distributionId = null);

@@ -12,7 +12,7 @@ class CloudFrontManager extends Manager
     /**
      * Get a driver instance.
      *
-     * @param string|null $name
+     * @param  string|null  $name
      * @return mixed
      */
     public function engine($name = null)
@@ -24,6 +24,7 @@ class CloudFrontManager extends Manager
      * Create an Amazon CloudFront instance.
      *
      * @return \Meema\CloudFront\CloudFront
+     *
      * @throws \Exception
      */
     public function createCloudFrontDriver(): CloudFront
@@ -42,8 +43,8 @@ class CloudFrontManager extends Manager
     /**
      * Sets the polly client.
      *
-     * @param array $config
-     * @param Credentials $credentials
+     * @param  array  $config
+     * @param  Credentials  $credentials
      * @return \Aws\CloudFront\CloudFrontClient
      */
     protected function setCloudFrontClient(array $config, Credentials $credentials): CloudFrontClient
@@ -58,7 +59,7 @@ class CloudFrontManager extends Manager
     /**
      * Get credentials of AWS.
      *
-     * @param array $credentials
+     * @param  array  $credentials
      * @return \Aws\Credentials\Credentials
      */
     protected function getCredentials(array $credentials): Credentials

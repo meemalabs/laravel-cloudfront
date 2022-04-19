@@ -19,7 +19,7 @@ class CloudFront implements CloudFrontInterface
     /**
      * Construct converter.
      *
-     * @param \Aws\CloudFront\CloudFrontClient $client
+     * @param  \Aws\CloudFront\CloudFrontClient  $client
      */
     public function __construct(CloudFrontClient $client)
     {
@@ -45,8 +45,8 @@ class CloudFront implements CloudFrontInterface
     /**
      * Bust an item/s in CloudFront's cache.
      *
-     * @param array|string $paths
-     * @param string|null $distributionId
+     * @param  array|string  $paths
+     * @param  string|null  $distributionId
      * @return \Aws\Result
      */
     public function invalidate($paths, string $distributionId = null)
@@ -73,7 +73,7 @@ class CloudFront implements CloudFrontInterface
     /**
      * Remove every item out of your CloudFront distribution.
      *
-     * @param string|null $distributionId
+     * @param  string|null  $distributionId
      * @return \Aws\Result
      */
     public function reset(string $distributionId = null)
@@ -84,8 +84,8 @@ class CloudFront implements CloudFrontInterface
     /**
      * Get a cache "invalidation".
      *
-     * @param string $invalidationId
-     * @param string|null $distributionId
+     * @param  string  $invalidationId
+     * @param  string|null  $distributionId
      * @return string
      */
     public function getInvalidation(string $invalidationId, string $distributionId = null)
@@ -117,7 +117,7 @@ class CloudFront implements CloudFrontInterface
     /**
      * List all of the cache invalidations.
      *
-     * @param string|null $distributionId
+     * @param  string|null  $distributionId
      * @return array
      */
     public function listInvalidations(string $distributionId = null)

@@ -20,7 +20,7 @@ class InvalidateCache implements ShouldQueue
     /**
      * Create a new job instance.
      *
-     * @param string|array $paths
+     * @param  string|array  $paths
      */
     public function __construct($paths, $distributionId = null)
     {
